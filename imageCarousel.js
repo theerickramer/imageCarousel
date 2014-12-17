@@ -42,7 +42,7 @@ $(document).ready(function() {
       //create li
       var li = $('<li>').attr('class', 'col-md-2');
       if (i >= currentEnd) {
-        $(li).addClass('hidden');
+        $(li).css('display', 'none');
       }
       $(li).append(image);
       //append to carousel
@@ -53,8 +53,11 @@ $(document).ready(function() {
   // Advance carousel
   $('.glyphicon-chevron-right').on('click', function(){
     if (currentEnd <= photosLength && currentBegin < photosLength - 5) {
-      $($('ul.carousel').children()[currentBegin]).toggleClass('hidden');
-      $($('ul.carousel').children()[currentEnd]).toggleClass('hidden');
+      $($('ul.carousel').children()[currentBegin]).hide("slide", { direction: "left" }, 200);
+      var newPhoto = function(){
+        $($('ul.carousel').children()[currentEnd]).show("slide", { direction: "right" }, 200);
+      }
+      setTimeout(newPhoto, 200)
       // Increment carousel range
       currentBegin++
       currentEnd++

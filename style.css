@@ -47,7 +47,7 @@ table {
 
 h1 {
 	font-size: 36px;
-	margin-bottom: 20px;
+	margin: 20px;
 }
 
 strong {
@@ -61,10 +61,6 @@ li.photo {
 
 img.small {
 	height: 200px;
-}
-
-.hidden {
-	display: none;
 }
 
 .glyphicon {
