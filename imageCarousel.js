@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
 
   var currentBegin = 0;
-  var currentEnd = 5;
+  var currentEnd = 4;
   var photosLength;
 
   // Load photos to carousel
@@ -36,12 +36,13 @@ $(document).ready(function() {
     photosLength = photos.length
     for(var i = 0; i < photosLength; i++){
       var photo_url = photos[i].images.normal;
-      //create img with photo source
+      // create img with photo source & modal trigger
       var image = $('<img>').attr('src', photo_url);
       $(image).attr('class', 'small');
-      //create li
+      // create li
       var li = $('<li>').attr('class', 'col-md-2');
-      if (i >= currentEnd) {
+      // only show first 5
+      if (i > currentEnd) {
         $(li).css('display', 'none');
       }
       $(li).append(image);
@@ -56,7 +57,8 @@ $(document).ready(function() {
   }
 
   var slideOut = function(photo, direction){
-      $($('ul.carousel').children()[photo]).hide("slide", { direction: direction }, 200);
+    $($('ul.carousel').children()[photo]).hide("slide", { direction: direction }, 200);
+    console.log(photo)  
   }
 
   // Advance carousel
@@ -67,8 +69,8 @@ $(document).ready(function() {
         slideIn(currentEnd, 'right')
       }, 200);
       // Increment carousel range
-      currentBegin++
-      currentEnd++
+    currentBegin++
+    currentEnd++
     }
   })
 

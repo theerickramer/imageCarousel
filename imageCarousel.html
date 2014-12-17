@@ -6,12 +6,27 @@
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="imageCarousel.js"></script>
 </head>
 <body>
 	<h1>Eric Kramer's Magical Photo Carousel</h1>
+	<!-- Carousel -->
 	<i class="glyphicon glyphicon-chevron-left col-md-1"></i>
 	<ul class="carousel"></ul>
 	<i class="glyphicon glyphicon-chevron-right col-md-1"></i>
+	<!-- Lighbox Modal -->
+	<div class="modal fade lightbox" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://33.media.tumblr.com/97fa330c1995353d71b2b61a36b4f751/tumblr_ngqk0zo20P1qeubbbo2_1280.jpg">
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
