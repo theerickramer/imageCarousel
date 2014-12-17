@@ -50,14 +50,22 @@ $(document).ready(function() {
     };
   };
 
+  // Slide functions
+  var slideIn = function(photo, direction){
+    $($('ul.carousel').children()[photo]).show("slide", { direction: direction }, 200);
+  }
+
+  var slideOut = function(photo, direction){
+      $($('ul.carousel').children()[photo]).hide("slide", { direction: direction }, 200);
+  }
+
   // Advance carousel
   $('.glyphicon-chevron-right').on('click', function(){
     if (currentEnd <= photosLength && currentBegin < photosLength - 5) {
-      $($('ul.carousel').children()[currentBegin]).hide("slide", { direction: "left" }, 200);
-      var newPhoto = function(){
-        $($('ul.carousel').children()[currentEnd]).show("slide", { direction: "right" }, 200);
-      }
-      setTimeout(newPhoto, 200)
+      slideOut(currentBegin, 'left');
+      setTimeout(function(){
+        slideIn(currentEnd, 'right')
+      }, 200);
       // Increment carousel range
       currentBegin++
       currentEnd++
@@ -67,9 +75,11 @@ $(document).ready(function() {
    // Rewind carousel
   $('.glyphicon-chevron-left').on('click', function(){
     if (currentBegin > 0) {
-      $($('ul.carousel').children()[currentBegin - 1]).toggleClass('hidden');
-      $($('ul.carousel').children()[currentEnd - 1]).toggleClass('hidden');
-      // Increment carousel range
+      slideOut(currentEnd, 'right');
+      setTimeout(function(){
+        slideIn(currentBegin, 'left')
+      }, 200);
+      // Decrement carousel range
       currentBegin--
       currentEnd--
     }
