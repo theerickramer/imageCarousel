@@ -70,3 +70,11 @@ img.small {
 .glyphicon:hover {
 	color: grey;
 }
+
+.modal-header {
+	height: 50px;
+}
+
+img.large {
+	height: 500px;
+}

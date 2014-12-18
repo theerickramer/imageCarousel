@@ -39,6 +39,13 @@ $(document).ready(function() {
       // create img with photo source & modal trigger
       var image = $('<img>').attr('src', photo_url);
       $(image).attr('class', 'small');
+      $(image).attr('data-toggle', 'modal');
+      $(image).attr('data-target', '.lightbox');
+        // Load image to lightbox modal click event
+      $(image).on('click', function(event){
+        var selectedImage = $(event.target).prop('src');
+        $('.large').attr('src', selectedImage)
+      })
       // create li
       var li = $('<li>').attr('class', 'col-md-2');
       // only show first 5
@@ -86,5 +93,5 @@ $(document).ready(function() {
       currentEnd--
     }
   })
-
+  
 });
